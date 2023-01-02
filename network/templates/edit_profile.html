@@ -1,0 +1,76 @@
+{% extends "network/layout.html" %}
+
+{% load static %}
+
+{% block body %}
+
+    <div class="main-div">
+        <div class="left-div">
+            <nav class="head heading">
+             
+            </nav>
+            <div class="left-div-content">
+                <div class="posts-view">
+                    {% block profile %}
+                    {% endblock %}
+                    <div class="main-div-content container">
+                        
+
+
+                        <form action="{% url 'edit_pr' profile.id %}" method="post" enctype="multipart/form-data">  
+                         {% csrf_token %}
+            
+                            <div class="form-row">
+                              <div class="form-group col-md-6">
+                                <label for="first_name">First name</label>
+                                <input type="text" class="form-control" name="first_name" value="{{ profile.first_name }}" id="first_name" placeholder="Email">
+                              </div>
+                              <div class="form-group col-md-6">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" class="form-control" name="last_name" value="{{ profile.last_name }}" id="last_name" placeholder="Password">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="username">Change User Name</label>
+                              <input type="text" class="form-control" name="username" value="{{ profile.username }}" id="username" placeholder="1234 Main St">
+                            </div>
+                            <div class="form-group" >
+                              <label for="email">Change mail</label>
+                              <input type="text" class="form-control" name="email" value="{{ profile.email }}" id="email" placeholder="Apartment, studio, or floor">
+                            </div >
+
+                            
+                              <div class="form-group">
+                                <div class="">
+                                  <input type="file" name="profile" class="form-control " name="profile"  id="profile" accept="image/jpeg,image/png,image/webp,image/gif">
+                                  <label class="" for="profile"><span style="color: #6c757d;">Choose profile picture<span></label>
+                                  <span class="star small"></span>
+                              </div>
+                              </div>
+                              <div class="form-group">
+                                <div>
+                                  <input type="file" name="cover" class="form-control" name="cover" id="cover"  >
+                                  <label class="" for="cover"><span style="color: #6c757d;">Choose cover picture<span></label>
+                                  <span class="star small"></span>
+                              </div>
+                              </div>
+                                 
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+
+
+                          </form>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'network/index.html' %}
+
+{% load static %}
+
+{% block profile %}
+
+<div class='right-div-content'>
+    <div class="space" style="background-color: white;"></div>
+    {% if user.is_authenticated %}
+        <div class="suggestion-box">
+            <div class="suggestion-header">
+                Pages
+            </div>
+        
+            <div>
+               <a href="{% url 'page_registration' user.id    %}"><input class="btn btn-primary" value="create page"></input></a> 
+               <a href="{% url 'mypage' user.id %}"><input class="btn btn-primary" value="My Pages"></input></a> 
+            </div><br>
+            
+          
+            {% for pag in pag %}
+            {% if user.username  != pag.creater.username %}
+                <div class="suggestion-user">
+                    <div>
+                        <a href="">
+                            <div class="small-profilepic" style="background-image: url(/media/{{pag.image}})"></div>
+                        </a>
+                    </div>
+                    <div class="user-details">
+                        <a href="{% url 'pageprofile' pag.id %}">
+                            <div id="user-name">
+                                
+                                <strong>
+                                    {{pag.pagename}} 
+                                </strong>
+                            </div>
+                            <!-- <div class="grey">@{{pag.username}}</div> -->
+                        </a>
+                    </div>
+                    <div>
+                        
+                        <button class="btn btn-outline-success" type="button" onclick="follow_user(this,'{{pag.pagename}}','suggestion')">Follow</button>
+                    </div>
+                </div>{% endif %}
+            {% empty %}
+                    <div style="text-align: center; border-bottom: .5px solid #e6ecf0; padding: 10px 15px;">
+                        <span class="grey" style="font-size: .9em;">No suggestions available.</span>
+                    </div>
+                    
+            {% endfor %}
+            <div class="suggestion-footer">
+                <a href="#">Show more</a>
+            </div>
+        </div>
+    {% else %}
+        <div class="guest-box">
+            <center>
+                <div class="guest-header">
+                    <h5>New to GitzShare?</h5>
+                </div>
+                <div class="grey guest-content">
+                    Sign up now to get connected with people you know.
+                </div>
+                <div class="guest-btn">
+                    <button class="btn btn-success btn-block" type="button" onclick="goto_register()">Sign Up</button>
+                </div>
+            </center>
+        </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}
+
+{% block emptyprofile %}
+    <center>
+        <br>
+        <strong style="font-size: 1.2em;">@{{username}} hasn't posted</strong>
+        <div class="grey" style="font-size: .9em;">When they do, their posts will show up here.</div>
+    </center>
+{% endblock %}

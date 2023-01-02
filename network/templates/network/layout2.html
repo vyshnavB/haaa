@@ -1,0 +1,138 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>GizShare</title>
+      
+        <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap');
+:root{
+    --primary-color:#38B6FF;
+    --secondary-color:#2D3748;
+    --white-color:#ffffff;
+    --light-grey: #E8E8E8;
+
+}
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+.login-wrapper{
+    background:url('../static/bg-cover.png');
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.login-wrapper aside {
+    width: 50%;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.login-wrapper .logo-block{
+    -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.bg-white{
+background-color: var(--white-color);
+}
+.form-bg{
+    padding: 75px 50px 50px 50px;
+    border-radius: 30px;
+}
+.form-bg .log-header{
+    margin-bottom: 25px;
+}
+.form-bg .log-header p{
+margin: 0;
+font-size: 14px;
+font-weight: 600;
+}
+.form-bg .log-header p span{
+    color: var(--primary-color);
+}
+.form-bg .log-header h4{
+    font-size: 32px;
+    margin: 0;
+}
+.form-group{
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.form-group label{
+    display: block;
+    font-size: 16px;
+}
+.form-group .form-ctrl{
+    font-size: 14px;
+border:1px solid var(--light-grey);
+border-radius: 3px;
+width: 100%;
+padding: 15px;
+}
+.form-group a{
+    color: var(--primary-color);
+}
+.form-bg button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 5px;
+    border: 0;
+    color: var(--white-color);
+}
+.form-bg button img{
+    padding-right: 10px;
+}
+.form-bg button.btn-primary{
+    background-color: var(--primary-color);
+}
+.form-bg button.btn-secondary{
+    background-color: var(--secondary-color);
+    padding: 0;
+}
+.form-bg .account-link{
+    margin: 0;
+    text-align: center;
+}
+.form-bg .account-link a{
+    color: var(--primary-color);
+}
+.form-bg .forgot-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+   </style>
+        {% block script %}{% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
