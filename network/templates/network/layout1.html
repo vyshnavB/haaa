@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexus | Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="../../static/style.css">
+    <link rel="stylesheet" href="../../static/styles.css">
+    <link rel="stylesheet" href="../../static/bootstrap.min.css">
+    <script type="text/javascript" src="{% static 'layout.js' %}">
+            
+    </script>
+
+
+   
+ 
+  
+        <link rel="shortcut icon" href="{% static 'Images/favicon.ico' %}">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        
+        <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+        {% block head %}
+        {% endblock %}
+
+</head>
+<body class="grey-bg">
+    
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="../../static/Images/logo copy.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+
+            <div class="d-flex input-group">
+                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2"><span class="material-symbols-outlined"> 
+                    search
+                    </span></span>
+              </div>
+              <div class="d-flex align-items-center nav-profile">
+                <div class="nav-img">
+                    
+                    <div class="small-profilepic" style="float: left; background-image: url(/media/{{user.profile_pic}})"></div>
+                </div>
+                <div class="nav-info">
+                    <h6>{{user.first_name}} {{user.last_name}}</h6>
+                </div>
+            </div>
+          </div>
+        </div>
+      </nav> 
+    
+
+
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-12">
+            <div class="menu-list bg-white"> 
+                <div class="sidenav">
+                    <a href="{% url 'index' %}" class="navbar-brand" >
+                       
+                    </a>
+                    <div style="height: 100%;">
+                        <div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <a href="{% url 'index' %}" class="active">
+                                            <span class="material-symbols-outlined">
+                                                home
+                                                </span>
+                                                Home
+                                        </a>
+                                    </li>
+                                    {% if user.is_authenticated %}
+                                        
+                                        <!-- <li class="nav-item" id="saved">
+                                            <a href="{% url 'saved' %}" class="nav-link">
+                                                <div>
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-bookmark" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" d="M8 12l5 3V3a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12l5-3zm-4 1.234l4-2.4 4 2.4V3a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10.234z"/>
+                                                      </svg>
+                                                    &nbsp;&nbsp;Saved
+                                                </div>
+                                            </a>
+                                        </li> -->
+                                        <li>
+                                            <a href="{% url 'profile' user.username %}">
+                                                <span class="material-symbols-outlined">
+                                                    person
+                                                    </span>
+                                                    Profile
+                                            </a>
+                                        </li>
+                                        <!-- <li class="nav-item" id="logout">
+                     
+                                            <a href="{% url 'test' %}" class="nav-link">
+                                                <div  >
+                                                    <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-door-open" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" d="M1 15.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM11.5 2H11V1h.5A1.5 1.5 0 0 1 13 2.5V15h-1V2.5a.5.5 0 0 0-.5-.5z"/>
+                                                        <path fill-rule="evenodd" d="M10.828.122A.5.5 0 0 1 11 .5V15h-1V1.077l-6 .857V15H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117z"/>
+                                                        <path d="M8 9c0 .552.224 1 .5 1s.5-.448.5-1-.224-1-.5-1-.5.448-.5 1z"/>
+                                                    </svg>
+                                                    &nbsp;&nbsp;Sell
+                                                </div>
+                                            </a>
+                                        </li> -->
+                                        <li>
+                                            <a href="">
+                                                <span class="material-symbols-outlined">
+                                                    work
+                                                    </span>
+                                                    Library
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'saved' %}">
+                                                <span class="material-symbols-outlined">
+                                                    add
+                                                    </span>
+                                                    Wishlist
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="material-symbols-outlined">
+                                                    notifications
+                                                    </span>
+                                                    Notifications
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'pag' user.id %}">
+                                                <span class="material-symbols-outlined">
+                                                    apps
+                                                    </span>
+                                                    Pages
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'logout' %}">
+                                                <span class="material-symbols-outlined">
+                                                    apps
+                                                    </span>
+                                                   Logout
+                                            </a>
+                                        </li>
+                                        
+                                    {% else %}
+                                    
+                                    <li>
+                                        <a href="{% url 'login' %}">
+                                            <span class="material-symbols-outlined">
+                                                notifications
+                                                </span>
+                                               Login
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'register' %}">
+                                            <span class="material-symbols-outlined">
+                                                notifications
+                                                </span>
+                                               Sign In
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                           
+                        </div>
+                     
+                            
+                            {% if user.is_authenticated %}
+                                <input type="hidden" id="user_is_authenticated" value="True" data-username='{{user.username}}'>
+                            {% else %}
+                                <input type="hidden" id="user_is_authenticated" value="False">
+                            {% endif %}
+                        
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+
+
+      <!-- ******************************************************************************************************** -->
+
+
+      <div class="popup">
+        <div class="small-popup">
+            <div style="margin-bottom: 10px; font-size: 1.1em;"><strong>Delete Post?</strong></div>
+            <div class="grey" style="font-size: .85em; margin-bottom: 15px;">
+                This can’t be undone and it will be removed from your profile, the timeline of any accounts that follow you, and from GizShare search results.
+            </div>
+            <div style="padding: 0px 5%;">
+                <button class="btn btn-light float-left" onclick="remove_popup()">Cancel</button>
+                <button class="btn btn-danger float-right" id="delete_post_btn">Delete</button>
+            </div>
+        </div>
+        <div class="large-popup">
+            <div>
+                <div>
+                    <div class="small-profilepic" style="background-image: url(/media/{{user.profile_pic}});"></div>
+                </div>
+                <div class="form-area">
+                    <form action="{% url 'user_create_post' %}" method="POST" class="newpost" enctype="multipart/form-data">
+                        {% csrf_token %}
+              
+              
+                        <textarea name="text" autofocus placeholder="Post Name..." rows="5" id="post-text"></textarea>
+                        <input type="hidden" id="img-change" value="false"></input>
+                        <div id='img-div'>
+                            <button id="del-img" type='button'>
+                                <svg width="1.55em" height="1.55em" viewBox="0 0 24 24" class="r-jwli3a r-4qtqp9 r-yyyyoo r-1q142lx r-50lct3 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1srniue" fill="#fff">
+                                    <g><path d="M13.414 12l5.793-5.793c.39-.39.39-1.023 0-1.414s-1.023-.39-1.414 0L12 10.586 6.207 4.793c-.39-.39-1.023-.39-1.414 0s-.39 1.023 0 1.414L10.586 12l-5.793 5.793c-.39.39-.39 1.023 0 1.414.195.195.45.293.707.293s.512-.098.707-.293L12 13.414l5.793 5.793c.195.195.45.293.707.293s.512-.098.707-.293c.39-.39.39-1.023 0-1.414L13.414 12z"></path></g>
+                                </svg>
+                            </button>
+                            <img src="{% static 'Images/spinner.gif' %}" id='spinner' height="70px">
+                        </div>
+                        <hr>
+                        <div class="form-action-btns">
+                            <div>
+                                <input name='picture' accept="image/jpeg,image/png,image/webp,image/gif" type="file" style="display: none;" id="insert-img" data-focusable="true">
+                                <label for="insert-img" class="icon-btn form-icon-btn"> 
+                                    <svg width="1.1em" height="1.4em" viewBox="0 0 16 16" class="bi bi-image" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="margin-left:2px">
+                                        <path fill-rule="evenodd" d="M14.002 2h-12a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm-12-1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12z"/>
+                                        <path d="M10.648 7.646a.5.5 0 0 1 .577-.093L15.002 9.5V14h-14v-2l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71z"/>
+                                        <path fill-rule="evenodd" d="M4.502 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                    </svg><span style="font-size: 0.95em;">&nbsp;Photo</span>
+                                </label>
+                            </div>
+                            <div>
+                                <button class="btn btn-light float-right cancel-post" type="button" onclick="remove_popup()">Cancel</button>
+                                <input type="submit" class="btn btn-success float-right submit-btn" value="&nbsp;Post&nbsp;" >
+                            </div>
+                        </div>
+                        <div style="width: 130px;" class="form-group ">
+                            <select name="status" id="" class="under form-control " style="color: black;" name="status" >
+                                <option class="form-control" value="nsale">Not For Sale</option>
+                                <option class="form-control" value="sale">Sale</option>
+                            </select>
+                        </div>
+                        <div class="detail" id="detail1" >
+                            <input name="Product_Price" placeholder="Enter price..." class="form-control" style="width: 130px;" >
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="login-popup">
+            <div onclick="remove_popup()" class="icon-btn">
+                <svg width="1.6em" height="1.6em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
+                    <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
+                </svg>
+            </div>
+            <center>
+                <div class="icon-div">
+                    <svg width="2.5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="#e0245e" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                    </svg>
+                </div>
+                <div class="main_text-div">
+                    <h2></h2>
+                    <div class="grey">
+                        Join Network today to connect with people you know.
+                    </div>
+                </div>
+                <div class="btn-div">
+                    <button class="btn btn-success btn-block" onclick="goto_register()">Sign Up</button>
+                    <button class="btn btn-outline-success btn-block" onclick="goto_login()">Login</button>
+                </div>
+            </center>
+        </div>
+    </div>
+
+
+    <!-- ***************************************************************************************************************************** -->
+
+
+
+
+        <div class="col-lg-6 col-md-6 col-12">
+            <div class="create-post bg-white">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Create New Giz...">
+                </div>
+                {% if user.is_authenticated %}
+                <button id="popup-btn" class="btn btn-success new-post-btn" onclick="createpost()">Create Post</button>
+            {% endif %}
+
+                <!-- <ul>
+                  <li>
+                      <a href="#">
+                          <span class="material-symbols-outlined">
+                              description
+                              </span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#">
+                          <span class="material-symbols-outlined">
+                              videocam
+                              </span>
+                      </a>
+                      
+                  </li>
+                  <li>
+                      <a href="#">
+                          <span class="material-symbols-outlined">
+                              add_a_photo
+                              </span>
+                      </a>
+                  </li>
+                </ul> -->
+              </div>
+
+
+
+
+           
+            
+            <div class="post-wrapper bg-white">
+      
+                {% block body %}
+
+                {% endblock %}
+            </div>
+
+
+
+
+
+
+        </div>
+
+        
+        <div class="col-lg-3 col-md-3 col-12">
+            <div class="feed-list bg-white">
+                <h4>Add to feed <span class="material-symbols-outlined">
+                    info
+                    </span></h4>
+                <ul>
+                    {% for suggestion in suggestions %}
+                    {% if not suggestion.is_staff %}
+                    <li>
+                        <div class="feed-wrapper">
+                            <div class="feed-img">
+                                <a href="{% url 'profile' suggestion.username %}">
+                                    <div class="small-profilepic" style="background-image: url(/media/{{suggestion.profile_pic}})"></div>
+                                </a>
+                            </div>
+                            <div class="feed-info">
+                                <a href="{% url 'profile' suggestion.username %}">
+                                    <div id="user-name">
+                                        
+                                        <strong>
+                                            {{suggestion.first_name}} {{suggestion.last_name}}
+                                        </strong>
+                                    </div>
+                                    <div class="grey">@{{suggestion.username}}</div>
+                                </a>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-success" type="button" onclick="follow_user(this,'{{suggestion.username}}','suggestion')">Follow</button>
+                            </div>
+                        </div>
+                    </li>
+                   
+                    {% endif %}
+                   {% endfor %}
+                </ul>
+            </div>
+
+            <div class="manage-list bg-white">
+                <h4>Manage Page <span class="material-symbols-outlined">
+                    info
+                    </span></h4>
+                    <div class="manage-wrapper">
+                        <div class="manage-img">
+                            <img src="images/byju-s-squarelogo-1607329527740.png" alt="">
+                        </div>
+                        <div class="manage-info">
+                            <h6>Byju’s</h6>
+                            <a href="#">Manage Page</a>
+                        </div>
+                    
+                    </div>
+            </div>
+        </div>
+      </div>
+
+</div>
+
+</body>
+
+</html>

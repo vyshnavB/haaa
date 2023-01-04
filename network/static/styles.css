@@ -1,9 +1,5 @@
 
-.body{
-    display: flex;
-    min-height: 100%;
-    font-family: system-ui, sans-serif;
-}
+
 .btn{
     border-radius: 20px;
     padding: 0.32rem 1rem 0.375rem 1rem;
@@ -300,9 +296,9 @@ svg{
 }
 
 .post{
+    
     background-color: white;
-    border-top: 1px solid #e6ecf0;
-    padding: 8px 18px 8px 18px;
+    padding: 8px 20px 20px 8px;
     font-size: .9em;
     animation-name: hidee;
     animation-duration: .4s;
@@ -372,11 +368,14 @@ svg{
     display: flex;
     flex: 1;
     align-items: stretch;
-    justify-content: space-evenly;
     color: #657786;
     margin-top: 10px;
 }
+.post-actions .views{
+
+}
 .post-actions > div{
+
     line-height: 1em;
     padding-left: 10px;
     padding-right: 10px;
@@ -708,8 +707,8 @@ svg{
     display: none;
     position: absolute;
     top: 34px;
-    left: 25%;
-    width: 47.5%;
+    left: 18%;
+     width: 47.5%;
     max-height: 90vh;
     transform: translate(-50%,-50%);
     background-color: white;
@@ -803,3 +802,72 @@ svg{
 }
 
 
+.share-btn-container {
+    
+    display: flex;
+    letter-spacing: 20px;
+    padding: 20px;
+    margin-left: 80px;
+    
+    
+    position: absolute;
+    
+    transform: translateY(-50%);
+  }
+  
+  .share-btn-container a i {
+    font-size: 32px;
+  }
+  
+  .share-btn-container a {
+    margin: 12px 0;
+    transition: 500ms;
+  }
+  
+  .share-btn-container a:hover {
+    transform: scale(1.2);
+  }
+  
+  .share-btn-container .fa-facebook {
+    color: #3b5998;
+  }
+  
+  .share-btn-container .fa-twitter {
+    color: #1da1f2;
+  }
+  
+  .share-btn-container .fa-linkedin {
+    color: #0077b5;
+  }
+  
+  .share-btn-container .fa-pinterest {
+    color: #bd081c;
+  }
+  
+  .share-btn-container .fa-whatsapp {
+    color: #25d366;
+  }
+  
+  /* Media Queries */
+  
+  @media (max-width: 550px) {
+    .content {
+      padding: 8px 32px;
+    }
+  
+    .share-btn-container {
+      transform: unset;
+      top: unset;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      flex-direction: row;
+      box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
+      padding: 16px 0;
+      justify-content: center;
+    }
+  
+    .share-btn-container a {
+      margin: 0 32px;
+    }
+  }
