@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'project4.urls'
@@ -64,10 +66,17 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+
+
+)
 
 WSGI_APPLICATION = 'project4.wsgi.application'
 
@@ -177,7 +186,7 @@ DATABASES = {
     } 
 #   'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'demogz',
+#         'NAME': 'gizshare',
 #         'USER': 'root',
 #         'PASSWORD': '',
 #         'HOST': 'localhost',
@@ -205,6 +214,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = '712339393587394'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '07c1757f2c7b02fc874df55645fc2d35'  # App Secret
 
 
 # Internationalization

@@ -180,44 +180,24 @@
                                                 </div>
                                             {% endif %}
                                             
-                                            <button class="view-modal">i</button>
-                                            <div class="popu">
-                                              <header>
-                                                <span>Share Modal</span>
-                                                <div class="close"><i class="uil uil-times"></i></div>
-                                              </header>
-                                              <div class="content">
-                                                <p>Share this link via</p>
-                                                <ul class="icons">
-                                                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                                  <a href="#"><i class="fab fa-twitter"></i></a>
-                                                  <a href="#"><i class="fab fa-instagram"></i></a>
-                                                  <a href="#"><i class="fab fa-whatsapp"></i></a>
-                                                  <a href="#"><i class="fab fa-telegram-plane"></i></a>
-                                                </ul>
-                                                <p>Or copy link</p>
-                                                <div class="field">
-                                                  <i class="url-icon uil uil-link"></i>
-                                                  <input type="text" readonly value="example.com/share-link">
-                                                  <button>Copy</button>
-                                                </div>
-                                              </div>
-                                            </div>
-                                
-
-
-
-
-                                            <div style="cursor: pointer;" class="share-icon" data-toggle="modal" data-target="#exampleModalCenter">
-                                                <div class="svg-span">
-                                                    
-                                                   <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="#000" class="bi bi-send" viewBox="0 0 16 16">
-                                                        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
-                                                      </svg>
+                                           
+                                            
+                                            <button class="dropdown-item" style="color: #e0245e;" onclick="share()">
+                                                <div style="cursor: pointer;" class="share-icon" data-toggle="modal" data-target="#exampleModalCenter">
+                                                    <div class="svg-span">
+                                                        
+                                                       <svg xmlns="http://www.w3.org/2000/svg" width="1.1em" height="1.1em" fill="#000" class="bi bi-send" viewBox="0 0 16 16">
+                                                            <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                                                          </svg>
+                                                        
+                                                    </div>
                                                     
                                                 </div>
-                                                
-                                            </div>
+                                            </button>
+
+
+
+                                            
                                             <div class="views">
                                                 <div class="svg-span">
                                                     
@@ -272,20 +252,13 @@
                                 </center>
                             {% endif %}
                         {% endfor %}
+
+
+
+
 <!-- ****************************************************** -->
 
-<div class="popup">
-    <div class="share-popup">
-        <div style="margin-bottom: 10px; font-size: 1.1em;"><strong>Delete Post?</strong></div>
-        <div class="grey" style="font-size: .85em; margin-bottom: 15px;">
-            This can’t be undone and it will be removed from your profile, the timeline of any accounts that follow you, and from GizShare search results.
-        </div>
-        <div style="padding: 0px 5%;">
-            <button class="btn btn-light float-left" onclick="remove_popup()">Cancel</button>
-            <button class="btn btn-danger float-right" id="delete_post_btn">Delete</button>
-        </div>
-        
-    </div></div>
+ 
 
 
 

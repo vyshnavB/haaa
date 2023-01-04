@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator
 import json
-
+import itertools
 from .models import *
 
 
@@ -1222,3 +1222,53 @@ def edit_pages(request,pk):
         profile.save()
         return redirect('/')      
 
+def search(request):
+    template='search.html'
+
+    query = request.GET['q']
+    print(query)
+    data = query
+
+    count = {}
+    results = {}
+    results['posts']= User.objects.none()
+    queries = data.split()
+    for query in queries:
+        results['posts'] = results['posts'] | User.objects.filter(username__icontains=query)
+        count['posts'] = results['posts'].count()
+
+
+    count2 = {}
+    queries2 = data.split()
+    results2 = {}
+    results2['posts'] = User.objects.none()
+    queries2 = data.split()
+    for query2 in queries:
+        results2['posts'] = results2['posts'] | User.objects.filter(first_name__icontains=query2)
+        count2['posts'] = results2['posts'].count()
+
+
+    count3 = {}
+    queries3 = data.split()
+    results3 = {}
+    results3['posts'] = User.objects.none()
+    queries3 = data.split()
+    for query3 in queries:
+        results3['posts'] = results3['posts'] | User.objects.filter(last_name__icontains=query3)
+        count3['posts'] = results3['posts'].count()
+        
+
+    files = itertools.chain(results['posts'],results2['posts'], results3['posts'])
+    result = []
+    for i in files:
+        if i not in result:
+            result.append(i)    
+
+    paginate_by=2
+    username = request.user.username
+    print('current user',username)
+    person = User.objects.get(username = username)
+    print('person',person)
+	
+    context={ 'files':result }
+    return render(request,template,context)

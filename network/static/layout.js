@@ -57,6 +57,17 @@ function confirm_delete(id) {
     small_popup.querySelector('#delete_post_btn').setAttribute('onclick', `delete_post(${id})`);
 }
 
+function share_popup() {
+    let popup = document.querySelector('.popup');
+    popup.style.display = 'block';
+    let share_popup = popup.querySelector('.share-popup');
+    share_popup.style.display = 'block';
+    document.querySelector('.body').setAttribute('aria-hidden', 'true');
+    document.querySelector('body').style.overflow = "hidden";
+    
+}
+
+
 function delete_post(id) {
     remove_popup();
     setTimeout(() => {
@@ -494,7 +505,7 @@ function goto_login() {
 
 const viewBtn = document.querySelector(".view-modal"),
 popu = document.querySelector(".popu"),
-close = popu.querySelector(".close"),
+close = popu.querySelector(".clos"),
 field = popu.querySelector(".field"),
 input = field.querySelector("input"),
 copy = field.querySelector("button");

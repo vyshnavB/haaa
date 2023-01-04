@@ -73,6 +73,7 @@ urlpatterns = [
     path('n/edit_pr/<int:pk>',views.edit_pr,name='edit_pr'),
     path('n/edit_page/<int:pk>',views.edit_page,name='edit_page'),
     path('n/edit_pages/<int:pk>',views.edit_pages,name='edit_pages'),
+    path('search/', views.search, name='search'),
 
 
 

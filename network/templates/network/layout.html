@@ -21,7 +21,8 @@
     
        
      
-      
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
             <link rel="shortcut icon" href="{% static 'Images/favicon.ico' %}">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
  <!-- CSS only -->
@@ -43,12 +44,26 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarScroll">
 
+            <!-- ********************search******************* -->
+
+            <form action="{% url 'search' %}" class="d-flex" method="GET" style="align-content: right;">
+                <div style="display: flex;" class="search-followers">
             <div class="d-flex input-group">
-                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                <span class="input-group-text" id="basic-addon2"><span class="material-symbols-outlined">
+                <div style="padding: 10px;" >
+                <input name="q" class="form-control me-2" type="search" id="search-box" placeholder="Find your friends" aria-label="Search" aria-describedby="basic-addon2"></div>
+                <div style="padding: 10px;">
+                <button type="submit" style="border: none;" ><span class="input-group-text" id="basic-addon2"><span class="material-symbols-outlined">
                     search
-                    </span></span>
+                    </span></span></button></div>
+
               </div>
+            </div>
+            </form>
+
+             <!-- ********************search******************* -->
+
+
+
               <div class="d-flex align-items-center nav-profile">
                 <div class="nav-img">
                     <div class="small-profilepic" style="background-image: url(/media/{{post.creater.profile_pic}})"></div>
@@ -204,6 +219,17 @@
             <button class="btn btn-light float-left" onclick="remove_popup()">Cancel</button>
             <button class="btn btn-danger float-right" id="delete_post_btn">Delete</button>
         </div>
+    </div>
+    <div class="share-popup">
+        <div style="margin-bottom: 10px; font-size: 1.1em;"><strong>Delete Post?</strong></div>
+        <div class="grey" style="font-size: .85em; margin-bottom: 15px;">
+            This can’t be undone and it will b
+        </div>
+        <div style="padding: 0px 5%;">
+            <button class="btn btn-light float-left" onclick="remove_popup()">Cancel</button>
+            
+        </div>
+        
     </div>
     <div class="large-popup">
         <div>
